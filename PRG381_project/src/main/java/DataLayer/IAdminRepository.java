@@ -8,18 +8,15 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
 /**
  *
  * @author sjaco
  */
 @Repository
-public interface IStudentRepository extends JpaRepository<Student, Integer>{
-    
-    List<Student> findByTitleContainingOrContentContaining(String text, String textAgain);
+public interface IAdminRepository extends JpaRepository<Admin, Integer> {
+    List<Admin> findByTitleContainingOrContentContaining(String text, String textAgain);
 
-    public Student findOne(int studentId);
+    public Admin findOne(int adminId);
 
-    public void delete(int studentId);
-    
+    public void delete(int adminId);
 }
