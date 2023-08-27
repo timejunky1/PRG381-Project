@@ -6,55 +6,51 @@ package DataLayer;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-/**
- *
- * @author sjaco
- */
-public class AdminController {
+@RestController
+public class AdminController extends Controller {
     @Autowired
     IAdminRepository adminRepository;
     
-    @GetMapping("/admin")
+    @GetMapping("/admin") //Get all the admins
     public List<Admin> index(){
         return adminRepository.findAll();
     }
 
 
-    @GetMapping("/admin/{id}")
-    public IEntity show(@PathVariable String id){
-        int studentId = Integer.parseInt(id);
-        return adminRepository.findOne(studentId);
+    @GetMapping("/admin/{id}")// Get th admin with the specific ID
+    public Optional<Admin> show(@PathVariable String id){
+        int adminId = Integer.parseInt(id);
+        return adminRepository.findById(adminId);
     }
 
-    @PostMapping("/admin/search")
-    public List<Admin> search(@RequestBody Map<String, String> body){
-        String searchTerm = body.get("text");
-        return adminRepository.findByTitleContainingOrContentContaining(searchTerm, searchTerm);
-    }
-
-    @PostMapping("/admin")
+    @PostMapping("/admin") // Add or register an andmin
     public Admin create(@RequestBody Map<String, String> body){
         String title = body.get("title");
         String content = body.get("content");
         return adminRepository.save(new Admin());
     }
 
-    @PutMapping("/admin/{id}")
+    @PutMapping("/admin/{id}") // Update an admin with respective ID
     public Admin update(@PathVariable String id, @RequestBody Map<String, String> body){
         int adminId = Integer.parseInt(id);
         // getting student
-        Admin admin = (Admin) adminRepository.findOne(adminId);
-        //Implementation of setters
-        return adminRepository.save(admin);
+        Optional<Admin> admin = adminRepository.findById(adminId);
+        if(admin.isPresent()){
+            Admin admn = admin.get();
+            //Implementation of setters
+            return adminRepository.save(admn);
+        }
+        return null;
     }
 
-    @DeleteMapping("admin/{id}")
+    @DeleteMapping("admin/{id}") //Delete an admin with the respective ID
     public boolean delete(@PathVariable String id){
         int adminId = Integer.parseInt(id);
-        adminRepository.delete(adminId);
+        adminRepository.deleteById(adminId);
         return true;
     }
 }

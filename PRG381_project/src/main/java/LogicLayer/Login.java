@@ -4,15 +4,16 @@
  */
 package LogicLayer;
 
-/**
- *
- * @author sjaco
- */
+import DataLayer.RegisterController;
+import DataLayer.StudentController;
+import DataLayer.AdminController;
 public class Login implements IAction{
+    RegisterController registerController;
+    StudentController studentController;
 
     @Override
     public boolean doAction() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        
     }
 
     @Override

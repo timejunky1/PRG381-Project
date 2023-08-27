@@ -10,24 +10,25 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
-/**
- *
- * @author sjaco
- */
 
 @Entity
-public class Student implements IEntity{
+public class Student{
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+    private String name;
+    private String address;
+    private String email;
+    private String pswd;
 
 
     public Student() {  }
 
 
-    public Student(int id) {
+    public Student(int id) {// add all perametres which will be set by setters in constructor
         this.setId(id);
+        //setters
     }
 
     public int getId() {
@@ -36,5 +37,37 @@ public class Student implements IEntity{
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getName(){
+        return name;
+    }
+
+    public void setName(String name){
+        this.name = name;
+    }
+
+    public String getAddress(){
+        return address;
+    }
+
+    public void setAddress(String address){
+        this.address = address;
+    }
+
+    public String getEmail(){
+        return email;
+    }
+
+    public void setEmail(String email){
+        this.email = email;
+    }
+
+    public String getPswd(){
+        return pswd;
+    }
+
+    public void setPswd(){
+
     }
 }

@@ -4,10 +4,6 @@
  */
 package LogicLayer;
 
-/**
- *
- * @author sjaco
- */
 public interface IAction {
     public boolean doAction();
     void logAction();

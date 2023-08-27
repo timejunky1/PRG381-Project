@@ -4,10 +4,6 @@
  */
 package LogicLayer;
 
-/**
- *
- * @author sjaco
- */
 public class Register implements IAction{
 
     @Override

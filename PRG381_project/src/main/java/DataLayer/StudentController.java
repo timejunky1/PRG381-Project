@@ -5,57 +5,52 @@
 package DataLayer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
-/**
- *
- * @author sjaco
- */
 @RestController
-public class StudentController {
+public class StudentController extends Controller {
     
     @Autowired
     IStudentRepository studentRepository;
     
-    @GetMapping("/student")
+    @GetMapping("/student")// get all students
     public List<Student> index(){
         return studentRepository.findAll();
     }
 
 
-    @GetMapping("/student/{id}")
-    public IEntity show(@PathVariable String id){
+    @GetMapping("/student/{id}")// get student by ID
+    public Optional<Student> show(@PathVariable String id){
         int studentId = Integer.parseInt(id);
-        return studentRepository.findOne(studentId);
+        return studentRepository.findById(studentId);
     }
 
-    @PostMapping("/student/search")
-    public List<Student> search(@RequestBody Map<String, String> body){
-        String searchTerm = body.get("text");
-        return studentRepository.findByTitleContainingOrContentContaining(searchTerm, searchTerm);
-    }
-
-    @PostMapping("/student")
+    @PostMapping("/student")// create a new student
     public Student create(@RequestBody Map<String, String> body){
-        String title = body.get("title");
-        String content = body.get("content");
+        //setting student
         return studentRepository.save(new Student());
     }
 
-    @PutMapping("/student/{id}")
+    @PutMapping("/student/{id}")// update a student with respective ID
     public Student update(@PathVariable String id, @RequestBody Map<String, String> body){
         int studentId = Integer.parseInt(id);
-        // getting student
-        Student student = (Student) studentRepository.findOne(studentId);
-        //Implementation of setters
-        return studentRepository.save(student);
+        Optional<Student> student = studentRepository.findById(studentId);
+        if(student.isPresent()){
+            Student std = student.get();
+            // getting student
+            // setting student
+            return studentRepository.save(std);
+        }
+        return null;
     }
 
-    @DeleteMapping("student/{id}")
+    @DeleteMapping("student/{id}")// delete student with respective ID
     public boolean delete(@PathVariable String id){
         int studentId = Integer.parseInt(id);
-        studentRepository.delete(studentId);
+        studentRepository.deleteById(studentId);
         return true;
     }
 }
