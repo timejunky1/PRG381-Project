@@ -4,16 +4,16 @@
  */
 package LogicLayer;
 
-public class Register implements IAction{
+// public class Register implements Action{
 
-    @Override
-    public boolean doAction() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+//     @Override
+//     public boolean doAction() {
+//         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+//     }
 
-    @Override
-    public void logAction() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+//     @Override
+//     public void logAction() {
+//         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+//     }
     
-}
+// }

@@ -4,21 +4,29 @@
  */
 package LogicLayer;
 
-import DataLayer.RegisterController;
-import DataLayer.StudentController;
-import DataLayer.AdminController;
-public class Login implements IAction{
-    RegisterController registerController;
-    StudentController studentController;
+// import DataLayer.RegisterController;
+// import DataLayer.StudentController;
+// import DataLayer.AdminController;
+// import DataLayer.Controller;
+// public class Login extends Action{
+//     RegisterController registerController;
+//     StudentController studentController;
 
-    @Override
-    public boolean doAction() {
-        
-    }
+//     public boolean doAction(Student student) {
+//         System.out.println("Login Student");
+//         return true;
 
-    @Override
-    public void logAction() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+//     }
+
+//     public boolean doAction(Admin admin) {
+//         System.out.println("Login Admin");
+//         return true;
+
+//     }
+
+//     @Override
+//     public void logAction() {
+//         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+//     }
     
-}
+// }

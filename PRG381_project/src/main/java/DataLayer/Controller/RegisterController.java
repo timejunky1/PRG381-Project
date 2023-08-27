@@ -1,10 +1,13 @@
-package DataLayer;
+package DataLayer.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import DataLayer.Model.Register;
+import DataLayer.Repository.IRegisterRepository;
+
 @RestController
-public class RegisterController extends Controller {
+public class RegisterController {
     @Autowired
     IRegisterRepository registerRepository;
 

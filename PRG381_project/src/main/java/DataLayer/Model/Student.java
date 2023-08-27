@@ -1,4 +1,9 @@
-package DataLayer;
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package DataLayer.Model;
+
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -7,23 +12,23 @@ import jakarta.persistence.Id;
 
 
 @Entity
-public class Register{
+public class Student{
+    
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-
     private String name;
     private String address;
     private String email;
     private String pswd;
 
 
-    public Register() {  }
+    public Student() {  }
 
 
-    public Register(int id, String name, String address, String email, String pswd) { // add all perametres which will be set by setters in constructor
+    public Student(int id) {// add all perametres which will be set by setters in constructor
         this.setId(id);
-        //Setters 
+        //setters
     }
 
     public int getId() {
@@ -63,6 +68,6 @@ public class Register{
     }
 
     public void setPswd(){
-        
+
     }
 }
