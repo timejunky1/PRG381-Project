@@ -26,9 +26,13 @@ public class Student{
     public Student() {  }
 
 
-    public Student(int id) {// add all perametres which will be set by setters in constructor
+    public Student(int id, String name, String address, String email, String pswd) {// add all perametres which will be set by setters in constructor
         this.setId(id);
         //setters
+        this.setName(name);
+        this.setAddress(address);
+        this.setEmail(email);
+        this.setPswd(pswd);
     }
 
     public int getId() {
@@ -67,7 +71,7 @@ public class Student{
         return pswd;
     }
 
-    public void setPswd(){
-
+    public void setPswd(String pswd){
+        this.pswd = pswd;
     }
 }

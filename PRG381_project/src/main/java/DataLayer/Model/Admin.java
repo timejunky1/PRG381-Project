@@ -21,8 +21,9 @@ public class Admin{
 
     public Admin() {  }
 
-    public Admin(int id) {
+    public Admin(int id) {// all perametres for fields in Admin
         this.setId(id);
+        //Setters
     }
 
     public int getId() {

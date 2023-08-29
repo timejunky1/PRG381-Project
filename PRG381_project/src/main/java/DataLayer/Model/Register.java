@@ -16,14 +16,20 @@ public class Register{
     private String address;
     private String email;
     private String pswd;
+    private String course;
 
 
     public Register() {  }
 
 
-    public Register(int id, String name, String address, String email, String pswd) { // add all perametres which will be set by setters in constructor
+    public Register(int id, String name, String address, String email, String pswd, String course) { // add all perametres which will be set by setters in constructor
         this.setId(id);
         //Setters 
+        this.setName(name);
+        this.setAddress(address);
+        this.setEmail(email);
+        this.setPswd(pswd);
+        this.setCourse(course);
     }
 
     public int getId() {
@@ -62,7 +68,15 @@ public class Register{
         return pswd;
     }
 
-    public void setPswd(){
-        
+    public void setPswd(String pswd){
+        this.pswd = pswd;
+    }
+
+    public String getCourse(){
+        return course;
+    }
+
+    public void setCourse(String course){
+        this.course = course;
     }
 }
