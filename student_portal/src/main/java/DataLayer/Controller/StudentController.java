@@ -28,9 +28,19 @@ public class StudentController {
         return studentService.getAllStudents();
     }
 
-
     @GetMapping("/student/{id}")// get student by ID
     public ResponseEntity<Student> getStudentById(@PathVariable("id") int Id){
         return new ResponseEntity<Student>(studentService.findByStudentId(Id),HttpStatus.OK);
+    }
+
+    @PutMapping("student/id")
+    public ResponseEntity<Student> updateEmployee(@PathVariable("id") int Id, @RequestBody Student student){
+        return new ResponseEntity<Student>(studentService.updateStudent(student, Id), HttpStatus.OK);
+    }
+
+    @DeleteMapping("student/id")
+    public ResponseEntity<String> deleteEmployee(@PathVariable("id") int Id){
+        studentService.deleteStudent(Id);
+        return new ResponseEntity<String>("Employee deleted successfully.", HttpStatus.OK);
     }
 }

@@ -51,7 +51,7 @@ public class StudentService {
             if(student.isPresent()){
                 return student.get();
             }else{
-                throw new Error();
+                throw new Error();//Make custom not found error
             }
         }
         for(Student s: studentR){
@@ -59,11 +59,12 @@ public class StudentService {
                 return s;
             }
         }
+        return null;
     }
 
-    public Student updateEmployee(Student student, int id){
+    public Student updateStudent(Student student, int id){
         if(useSQL){
-            Student existingStudent = studentRepository.findById(id).orElseThrow(() -> new Error());
+            Student existingStudent = studentRepository.findById(id).orElseThrow(() -> new Error());//Make custom not found error
             existingStudent.setName(student.getName());
             existingStudent.setAddress(student.getAddress());
             existingStudent.setEmail(student.getEmail());
@@ -82,6 +83,19 @@ public class StudentService {
                 return s;
             }
         }
+        return null;
     }
 
+    public void deleteStudent(int Id){
+        if(useSQL){
+            Student existingStudent = studentRepository.findById(Id).orElseThrow(() -> new Error());//Make custom not found error
+
+            studentRepository.deleteById(Id);
+        }
+        for(Student s: studentR){
+            if(s.getId() == Id){
+                studentR.remove(s);
+            }
+        }
+    }
 }

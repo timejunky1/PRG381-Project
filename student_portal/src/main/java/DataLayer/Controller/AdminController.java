@@ -17,6 +17,6 @@ import DataLayer.Repository.IAdminRepository;
 public class AdminController {
     @Autowired
     IAdminRepository adminRepository;
-    
-    
+
+    //Coppy over from Student controller
 }
