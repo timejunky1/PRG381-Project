@@ -3,10 +3,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
  */
 package LogicLayer;
+import DataLayer.Controller.*;
+import DataLayer.Model.*;
+public abstract class Action {
+    RegisterController registerController;
+    StudentController studentController;
+    AdminController adminController;
+    public int Port;
+    public void logAction(){
 
-// public abstract class Action {
-
-//     void logAction(){
-//         //write to file
-//     }
-// }
+    };
+}

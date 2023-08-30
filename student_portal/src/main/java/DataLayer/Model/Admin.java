@@ -4,13 +4,15 @@
  */
 package DataLayer.Model;
 
+import java.io.Serializable;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class Admin{
+public class Admin implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
@@ -21,9 +23,12 @@ public class Admin{
 
     public Admin() {  }
 
-    public Admin(int id) {// all perametres for fields in Admin
+    public Admin(String name, String pswd, String contact) {// all perametres for fields in Admin
         this.setId(id);
         //Setters
+        this.setName(name);
+        this.setPswd(pswd);
+        this.setContact(contact);
     }
 
     public int getId() {
@@ -56,5 +61,10 @@ public class Admin{
     
     public void setContact(String contact){
         this.contact = contact;
+    }
+
+    @Override
+    public String toString(){
+        return name + ", " + contact;
     }
 }

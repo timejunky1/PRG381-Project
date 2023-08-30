@@ -13,5 +13,4 @@ import DataLayer.Model.Student;
 
 @Repository
 public interface IStudentRepository extends JpaRepository<Student, Integer>{
-    
 }

@@ -4,10 +4,14 @@
  */
 package DataLayer.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import DataLayer.Model.Student;
 import DataLayer.Repository.IStudentRepository;
+import DataLayer.Service.StudentService;
+import jakarta.websocket.server.PathParam;
 
 import java.util.List;
 import java.util.Map;
@@ -17,43 +21,16 @@ import java.util.Optional;
 public class StudentController {
     
     @Autowired
-    IStudentRepository studentRepository;
+    StudentService studentService;
     
     @GetMapping("/student")// get all students
-    public List<Student> index(){
-        return studentRepository.findAll();
+    public List<Student> addRegister(@RequestBody Student register){
+        return studentService.getAllStudents();
     }
 
 
     @GetMapping("/student/{id}")// get student by ID
-    public Optional<Student> show(@PathVariable String id){
-        int studentId = Integer.parseInt(id);
-        return studentRepository.findById(studentId);
-    }
-
-    @PostMapping("/student")// create a new student
-    public Student create(@RequestBody Map<String, String> body){
-        //setting student
-        return studentRepository.save(new Student());
-    }
-
-    @PutMapping("/student/{id}")// update a student with respective ID
-    public Student update(@PathVariable String id, @RequestBody Map<String, String> body){
-        int studentId = Integer.parseInt(id);
-        Optional<Student> student = studentRepository.findById(studentId);
-        if(student.isPresent()){
-            Student std = student.get();
-            // getting student
-            // setting student
-            return studentRepository.save(std);
-        }
-        return null;
-    }
-
-    @DeleteMapping("student/{id}")// delete student with respective ID
-    public boolean delete(@PathVariable String id){
-        int studentId = Integer.parseInt(id);
-        studentRepository.deleteById(studentId);
-        return true;
+    public ResponseEntity<Student> getStudentById(@PathVariable("id") int Id){
+        return new ResponseEntity<Student>(studentService.findByStudentId(Id),HttpStatus.OK);
     }
 }

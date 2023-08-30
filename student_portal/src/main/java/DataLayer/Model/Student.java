@@ -5,6 +5,8 @@
 package DataLayer.Model;
 
 
+import java.io.Serializable;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -12,11 +14,12 @@ import jakarta.persistence.Id;
 
 
 @Entity
-public class Student{
+public class Student implements Serializable{
     
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    
     private String name;
     private String address;
     private String email;
@@ -26,7 +29,7 @@ public class Student{
     public Student() {  }
 
 
-    public Student(int id, String name, String address, String email, String pswd) {// add all perametres which will be set by setters in constructor
+    public Student(String name, String address, String email, String pswd) {// add all perametres which will be set by setters in constructor
         this.setId(id);
         //setters
         this.setName(name);
