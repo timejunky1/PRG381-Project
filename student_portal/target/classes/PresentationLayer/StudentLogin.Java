@@ -15,6 +15,9 @@ import java.awt.event.ActionListener;
         JLabel lblID = new JLabel("Student ID");
         JTextField tfID = new JTextField();
 
+        JLabel lblEmail = new JLabel("Your Student Email");
+        JTextField tfEmail = new JTextField();
+
         JLabel lblPassword = new JLabel("Top Secret");
         JTextField tfPassword = new JTextField();
 
@@ -26,6 +29,15 @@ import java.awt.event.ActionListener;
                 // Select next GUI to be displayed
                 //throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
             }});
+
+            JButton btnRegister = new JButton("Next");
+            btnRegister.addActionListener(new ActionListener() {
+    
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    // Select next GUI to be displayed
+                    //throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
+                }});
 
         JButton btnCancel = new JButton("Cancel");
         btnCancel.addActionListener(new ActionListener() {
@@ -39,6 +51,7 @@ import java.awt.event.ActionListener;
         JPanel buttonsPanel = new JPanel();
         buttonsPanel.setLayout(new GridLayout(1,2,5,5));
         buttonsPanel.add(btnNext);
+        buttonsPanel.add(btnRegister);
         buttonsPanel.add(btnCancel);
 
         JPanel formCredentials = new JPanel();
@@ -49,6 +62,8 @@ import java.awt.event.ActionListener;
         formCredentials.add(tfLastname);
         formCredentials.add(lblID);
         formCredentials.add(tfID);
+        studentDetails.add(lblEmail);
+        studentDetails.add(tfEmail);
         formCredentials.add(lblPassword);
         formCredentials.add(tfPassword);
 

@@ -6,14 +6,23 @@ import java.awt.event.ActionListener;
  public class StudentDisplay extends JFrame{
     public void login()
     {
+        JLabel lblID = new JLabel("Your Student ID");
+        JTextField tfID = new JTextField();
+
         JLabel lblFirstName = new JLabel("First Name");
         JTextField tfFirstName = new JTextField();
 
         JLabel lblLastName = new JLabel("Last Name");
         JTextField tfLastname = new JTextField();
 
-        JButton btnSelect = new JButton("Select");
-        btnSelect.addActionListener(new ActionListener() {
+        JLabel lblEmail = new JLabel("Your Student Email");
+        JTextField tfEmail = new JTextField();
+
+        JLabel lblAddress = new JLabel("your Residential address");
+        JTextField tfAddress = new JTextField();
+
+        JButton btnUpdate = new JButton("Update your Information");
+        btnUpdate.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -32,22 +41,28 @@ import java.awt.event.ActionListener;
 
         JPanel buttonsPanel = new JPanel();
         buttonsPanel.setLayout(new GridLayout(1,2,5,5));
-        buttonsPanel.add(btnSelect);
+        buttonsPanel.add(btnUpdate);
         buttonsPanel.add(btnCancel);
 
-        JPanel formCredentials = new JPanel();
-        formCredentials.setLayout(new GridLayout(4,1,5,5);
-        formCredentials.add(lblFirstName);
-        formCredentials.add(tfFirstName);
-        formCredentials.add(lblLastName);
-        formCredentials.add(tfLastname);
+        JPanel studentDetails = new JPanel();
+        studentDetails.setLayout(new GridLayout(5,2,5,5);
+        studentDetails.add(lblFirstName);
+        studentDetails.add(tfFirstName);
+        studentDetails.add(lblLastName);
+        studentDetails.add(tfLastname);
+        studentDetails.add(lblID);
+        studentDetails.add(tfID);
+        studentDetails.add(lblEmail);
+        studentDetails.add(tfEmail);
+        studentDetails.add(lblAddress);
+        studentDetails.add(tfAddress);
 
         JPanel mainPanel = new JPanel();
         mainPanel.setLayout(new BorderLayout());
         mainPanel.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
-        mainPanel.add(formCredentials, BorderLayout.CENTER);
+        mainPanel.add(studentDetails, BorderLayout.CENTER);
         mainPanel.add(buttonsPanel, BorderLayout.SOUTH);
-        setTitle("Welcome to the student portal. Please make your login selection.");
+        setTitle("Welcome to your student portal. ");
         setMinimumSize(new Dimension(500,600);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
@@ -55,5 +70,5 @@ import java.awt.event.ActionListener;
 
     public static void main(String[] args) 
     {
-        LoginDisplay login1 = new LoginDisplay();
-    };
+        StudentDisplay login1 = new StudentDisplay();
+    }
